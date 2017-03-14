@@ -1,0 +1,25 @@
+<% include partials/header %>
+
+    <div class="container">
+        <div class="row">
+            <span class="col-md-1 col-sm-0"></span>
+            <article class="col-md-10 col-sm-12">
+                <div class="row">
+                    <div class="grille col-xs-11">
+                        <h3>Réclamations</h3>
+                        <% for ( var i = réclamation.length -1 ; i >= 0; i-- ){ %>
+                           <div class="grille">
+                               <span class="traité"><form method="POST" action="/reclamationAdmin"><input type="hidden" name="idRécTraité" value="<%= réclamation[i].id %>" /><button ><i class="fa fa-check" aria-hidden="true"></i></button></form></span>
+                               <h4 class="titreSec "> Réclamation du <%= réclamation[i].dateR %> de <%= réclamation[i].Nom %> <%= réclamation[i].Prénom %> <span class="traité">Traité : <%if (réclamation[i].traité === "1") { %><i class="fa fa-hourglass-end" aria-hidden="true"></i><i class="fa fa-check" aria-hidden="true"></i><% } else { %><i class="fa fa-hourglass-start" aria-hidden="true"></i><% } %></span><form class="trash" method="POST" action="/reclamationAdmin"><input type="hidden" name="idRéc" value="<%= réclamation[i].id %>" /><button class="trash2"><i class="fa fa-trash"></i></button></form></h4>
+                               <p class="separateur"><%= réclamation[i].plainte %></p>
+                               <p>Référence : <%= réclamation[i].référence %></p>
+                               <p>Prix : <%= réclamation[i].prix %></p>
+                            </div>
+                        <% }; %> 
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+<% include partials/footer %>

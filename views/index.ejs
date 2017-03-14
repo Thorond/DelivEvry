@@ -1,0 +1,168 @@
+<% include partials/header %>
+
+        
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 col-xs-2 " ><div class="fixe"><h2 class="titre">Deliv'Evry </h2>
+                    <h2 class="titre">News</h2></div></div>
+                    <article class="col-md-7 col-sm-10">
+                        <div class="row">
+                            <div class=" col-xs-12">
+                                <% if (utilisateurNom === "lefevreAdmin" && utilisateurPrénom === "ProjetGate2016!"){ %>
+                                    <div class="grille">
+                                       <h3>Nouvel article.</h3>
+                                       <form class="form-horizontal" action="/" method="POST" >
+                                            <!--enctype="multipart/form-data"-->
+                                           <div class="form-group">
+                                            <div class="col-sm-4">
+                                              <input type="text" class="form-control Auteur" name="Auteur" placeholder="Auteur">
+                                            </div>
+                                            <div class="col-sm-4">
+                                              <input type="text" class="form-control Date" name="date"  placeholder="Date">
+                                            </div>
+                                            <div class="col-sm-4">
+                                              <input type="text" class="form-control titreArt" name="titre" placeholder="Titre">
+                                            </div>
+                                            <!--<div class="col-sm-4">-->
+                                            <!--    <input class="redir" type="file" name="file">-->
+                                            <!--</div>-->
+                                          </div>
+                                          <div class="form-group">
+                                            <div class="col-sm-12">
+                                              <textarea class="form-control Arti" rows="10" name="article"  placeholer="Ecrivez l'article..."></textarea>
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <div class="col-sm-offset-4 col-sm-10">
+                                              <button type="submit" class="btn btn-info btnEcri btn-article">Ajouter</button>
+                                            </div>
+                                          </div>
+                                        </form>
+                                    </div>
+                                    <div class="grille">
+                                    <% for ( var i = article.length -1 ; i >= 0; i-- ){ %>
+                                        
+                                           <h3 class="titreSec "><%= article[i].date %>: <%= article[i].titre%><span>             </span><form class="trash" method="POST" action="/"><input type="hidden" name="idArt" value="<%= article[i].id %>" /><button class="trash2"><i class="fa fa-trash"></i></button></form></h3>
+                                           <h4 class="">Par <%= article[i].Auteur %></h4>
+                                           <p><%= article[i].article %></p>
+                                           <div class="separateur"></div>
+                                    <% } %> 
+                                    </div>
+                                <% } else { %>
+                                    <div class="grille">
+                                    <% for ( var i = article.length -1 ; i >= 0; i-- ){ %>
+                                        
+                                           <h3 class=" titreSec "><%= article[i].date %>: <%= article[i].titre%></h3>
+                                           <h4 class="">Par <%= article[i].Auteur %></h4>
+                                           <p><%= article[i].article %></p>
+                                           <div class="separateur"></div>
+                                    <% }; %> 
+                                    </div>
+                                <% }; %> 
+                               
+                                
+                                
+                           </div>
+                        </div>
+                    </article>
+
+                    <aside class="col-md-3 col-sm-11 "> 
+                        <div class="row">
+                            
+                            
+                            <div class="col-md-12 col-xs-6">
+                                <div class="row">
+                                    <div class="grille col-xs-11">
+                                        <h2 class="titreSec ">À propos de nous</h2>
+                                        <img src="/images/photo_de_groupe.jpg" alt="Photo de groupe" class="img-thumbnail">
+                                        <p class="aPropo">Nous sommes un groupe d'étudiants de Telecom SudParis dont notre projet de première année est de permettre aux étudiants d'être livrés par Leclerc sur le campus. Ceci nous est possible grâce à un partenariat avec le Leclerc Drive de Lisses ainsi que celui de Viry Chatillon.</p>
+                                        <div class="row">
+                                            <span class="col-xs-2"></span>
+                                            <span class="col-xs-4">
+                                                <button type="button" class="btn btn-info btnEquipe"><a class="btnEcri" href="equipe">L'équipe</a></button>
+                                            </span>
+                                            <span class="col-xs-4">
+                                                <button type="button" class="btn btn-info btnEquipe"><a class="btnEcri" href="feedback">Feedback</a></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12 col-xs-6">
+                                <div class="row">
+                                    <div class="grille col-xs-11">
+                                        <h2 class="titreSec ">Pourquoi utiliser notre service?</h2>
+                                        <video preload="none"  class="img-thumbnail" src="/vidéos/pub.mp4" controls="controls" type="video/mp4" preload="none"></video> 
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-md-12 col-xs-6">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="row">
+                                            <div class="grille col-xs-11">
+                                                <h2 class="titreSec">Nos livraisons</h2>
+                                                <% if (utilisateurNom === "lefevreAdmin" && utilisateurPrénom === "ProjetGate2016!"){ %>
+                                                    <form class="" action="/" method="POST">
+                                                      <div class="form-group">
+                                                        <div class="col-sm-4 formulaireL">
+                                                            <input type="text" class="form-control dateL" name="dateL" placeholder="Date">
+                                                        </div>
+                                                        <div class="col-sm-4 formulaireL">
+                                                            <input type="text" class="form-control nbrCom" name="nbrCom" placeholder="Nombre">
+                                                        </div>
+                                                        <div class="col-sm-1">
+                                                        <button type="submit" class="btn btn-info btnEcri">Ok</button>
+                                                        </div>
+                                                      </div>
+                                                    </form>
+                                                
+                                                    <ul>
+                                                        <li></li>
+                                                        <li></li>
+                                                        <% for ( var i = livraison.length -1 ; i >= 0; i-- ){ %>
+                                                            <li class="sepLiv"><strong><%= livraison[i].dateL %></strong>: <%= livraison[i].nbrCom %> livraisons.<form class="trash3" method="POST" action="/"><input type="hidden" name="idLiv" value="<%= livraison[i].id %>" /><button class="trash2"><i class="fa fa-trash"></i></button></form></li>
+                                                        <% }; %> 
+                                                    </ul>
+                                                <% } else { %>
+                                                    <ul>
+                                                        <% for ( var i = livraison.length -1 ; i >= 0; i-- ){ %>
+                                                            <li><strong><%= livraison[i].dateL %></strong>: <%= livraison[i].nbrCom %> livraisons.</li>
+                                                        <% }; %> 
+                                                    </ul>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="row">
+                                            <div class="grille col-xs-11">
+                                                <h2 class="titreSec">Partenaires</h2>
+                                                <div class="row">
+                                                    <div class="part1 col-xs-4">
+                                                        <a href="http://www.telecom-sudparis.eu/fr_accueil.html"><img src="images/logoTSP.png" alt="Logo de TSP" class="img-thumbnail"></a>
+                                                    </div>
+                                                    <div class="part2 col-xs-4">
+                                                        <a href="http://www.e-leclerc.com/?ectrans=1&gclid=CjwKEAiA7ejCBRDlp8uF6ezPnjoSJAAPED7Mx2X5X_CLxlgHsS92usKOWlhjgHCrUWtoyd1M_7TDrxoCUdjw_wcB"><img src="images/Logo_E.Leclerc.jpg" alt="Leclerc" class="img-thumbnail"></a>
+                                                    </div>
+                                                    <div class="part3 col-xs-4">
+                                                        <a href="https://gate.wp.telecom-sudparis.eu/"><img src="images/Logo_GATE.jpg" alt="Gate" class="img-thumbnail"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+
+<% include partials/footer %>

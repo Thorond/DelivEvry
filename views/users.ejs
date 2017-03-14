@@ -1,0 +1,62 @@
+<% include partials/header %>
+            
+
+            <div class="container">
+              <div class="row">
+                    <span class="col-sm-4 col-xs-0"></span>
+
+                    <aside class="col-sm-4 col-xs-12 "> 
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="row">
+                                    <div class="grille col-xs-11">
+                                        <h2 class="titreSec" >Ajout d'utilisateurs</h2>
+                                        <form class="form-horizontal" action="/users" method="POST" >
+                                          <div class="form-group">
+                                            <div class="col-sm-12">
+                                              <input type="text" name="Nom" class="form-control" placeholder="Nom">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <div class="col-sm-12">
+                                              <input type="text" name="Prénom" class="form-control" placeholder="Prénom">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <div class="col-sm-12">
+                                              <input type="text" name="numéro" class="form-control" placeholder="Son numéro">
+                                            </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <div class="col-sm-offset-4 col-sm-10">
+                                              <button type="submit" class="btn btn-info">Ajouter</button>
+                                            </div>
+                                          </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>   
+                        </div>
+                    </aside>
+                    <span class="col-sm-4 col-xs-0"></span>
+                </div>
+                <div class="row">
+                  <span class="col-md-2 col-xs-0"></span>
+                  <div class="grille col-md-8">
+                    <div class="table-responsive">
+                      <table class="table table-striped table-condensed">
+                        <tr><td>#</td></td.><td>Nom</td><td>Prénom</td><td>Téléphone</td><td><i class="fa fa-trash"></i></td></tr>
+                        <% utilisateur.forEach(function(uti){ %>
+                            <tr><td><%= uti.id%></td><td><%= uti.Nom %></td> <td><%= uti.Prénom %></td><td><%= uti.numéro %></td><td><form class="trashU" method="POST" action="/users"><input type="hidden" name="idUse" value="<%= uti.id %>" /><button class="trash2"><i class="fa fa-trash"></i></button></form></td></tr>
+                        <% }); %> 
+                      </table>
+                    </div>
+                  </div>
+                  <span class="col-md-2 col-xs-0"></span>
+                </div>
+            </div>
+            
+            
+            
+
+<% include partials/footer %>

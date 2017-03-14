@@ -1,0 +1,241 @@
+/*format global*/
+
+.titre , .titreSec, h2  {
+	font-family: "Berlin sans FB", Helvetica, "Comic sans MS", sans-serif;
+	font-weight:normal;
+}
+
+h2 {
+	margin-top:8px;
+}
+
+p, li, h3, h4 {
+	font-family:Helvetica, "Comic sans MS", sans-serif;
+	font-weight:normal;
+}
+h3 {
+	font-size:1.6em;
+}
+h4 {
+	font-size:1.1em;
+}
+
+body {
+	background-color:rgba(217, 237, 247, 0.10);
+}
+
+
+/*En-tête*/
+
+.navbar-header {
+	height:80px;
+}
+.entête {
+	padding-top:15px;
+}
+
+.redir{
+	color: #eef3f9;
+    background-color: #dfeefe;
+    margin: 12px 5px;
+    border-radius: 3px;
+    box-shadow:0px 2px 8px rgba(23, 45, 69, 0.25);
+    border:none;
+}
+
+.entête1 {
+	padding-top:36px;
+	font-size:1.4em;
+}
+
+.logo {
+	padding-top:10px;
+}
+
+.navbar-header img {
+	height:60px;
+	width: 60px;
+}
+
+.navbar-default {
+	background-color:#55A9FF;
+	margin-bottom:0;
+}
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
+	color: #3E4141;
+}
+.navbar-default .navbar-nav>li>a, .redir{
+	color:#3C4B49;
+	padding: 8px;
+}
+
+.liens1 {
+	font-size: 1.4em;
+}
+
+.btnnav{
+	margin-top:30px;
+	background-color: #dfeefe;
+	color: #3E4141;
+}
+.navbar-default .navbar-toggle:hover, .redir:hover {
+	background-color:#55A9FF;
+}
+.redir2:hover{
+	background-color:white;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	background-color:#3E4141;
+}
+
+.ombreNav{
+	padding-top: 8px;
+	box-shadow: inset 0 100px 50px -100px rgba(0,0,0,0.4);
+}
+
+.dropdown-menu{
+	/*background-color:#dfeefe;*/
+	background-color:#55A9FF;
+}
+
+/*Corps*/
+
+.ombreCor{
+	margin-top:88px;
+	padding-top: 40px;
+	box-shadow: inset 0 100px 100px -100px rgba(0,0,0,0.4);
+}
+
+section {
+	margin-top:10px;
+}
+
+.fixe{
+	position:fixed;
+	top:160px;
+}
+
+.lienLeclerc {
+	color:#002F2F;
+}
+.lienLeclerc:hover {
+	color:white;
+}
+
+/*article*/
+
+.separateur {
+	padding-top: 6px;
+	border-top: dotted #55A9FF 1px;
+}
+
+/*grille*/
+
+.grille {
+	padding:10px;
+	margin:12px;
+	border-radius:3px;
+	background-color: white;
+	box-shadow:0px 2px 10px rgba(23, 45, 69, 0.25);
+}
+.form-group, .form-control, .etatCo{
+	margin:1px 4px;
+}
+.grilleI {
+	padding:0px;
+	margin:5px;
+	border-radius:3px;
+	background-color: white;
+	box-shadow:0px 2px 10px rgba(23, 45, 69, 0.25);
+	width:220px;
+	height:250px;
+}
+
+/*aside*/
+.aPropo{
+	text-align: justify;
+}
+.btnEquipe {
+	background-color: #55A9FF;
+	margin:auto;
+}
+.btn, .btnEquipe, .btnEcri:hover {
+	color:white;
+	text-decoration: none;
+}
+.btn, .btnEcri {
+	background-color: #55A9FF;
+	color:white;
+}
+
+.part1 {
+	padding-left:8px;
+	padding-right:2px;
+}
+.part2 {
+	padding-left:2px;
+	padding-right:2px;
+}
+.part3 {
+	padding-right:8px;
+	padding-left:2px;
+}
+
+/*image*/
+
+.portrait {
+	max-width:150px;
+	max-height:150px;
+}
+
+/*IndexAdmin*/
+
+.Auteur, .titreArt , .Date {
+	width: 100%;
+}
+
+.dateL, .nbrCom{
+	width: 100%;
+}
+.formulaireL {
+	padding-right: 3px;
+	padding-left: 3px;
+	padding-bottom: 5px;
+}
+.btn-recla{
+	width:65%;
+}
+
+.trash {
+	text-align: center;
+	width:30px;
+	height:30px;
+	float:right;
+}
+.trashU{
+	text-align: center;
+	width:30px;
+	height:30px;
+}
+.trash3 {
+	text-align: center;
+	width:15px;
+	height:15px;
+	float:right;
+}
+.trash2 {
+	background:#e74c3c;
+	color:white;
+	border-radius:5px;
+}
+
+.sepLiv{
+	margin-top:10px;
+}
+
+/*Réclamations*/
+
+.traité{
+	margin-left:10px;
+}

@@ -1,0 +1,76 @@
+<% include partials/header %>
+            
+
+            <div class="container">
+                <div class="row">
+                    <article class="col-md-9 col-sm-12">
+                        <div class="row">
+                            <div class="grille col-sm-12">
+                                <h3 class="introduction titre">Quand il vous manque un ou plusieurs produits ou que vous en avez qui sont détériorés.</h3>
+                                <p>Il est probable que certains produits que vous avez commandés ne soient pas présents le jour de la livraison. Si Leclerc ne vous a pas donné d'avoir <strong>le samedi suivant</strong> sur ce qu'il vous manque, cette page est faite pour recevoir les réclamations que l'on communiquera nous même à Leclerc.</p>
+                                <p class="signature">L'équipe de Deliv'evry</p>
+                                <h3>Attention !</h3>
+                                <p>Toute personne désirant faire une réclamation devra préalablement déjà avoir commandé au moins une fois avec notre service. Leur nom et prénom seront ajoutés dans notre base de données et ils pourront s'identifier.</p>
+                                <p>On ne regardera aucune réclamation avant le dimanche matin, les avoirs étant remis le samedi au plus tôt.</p>
+                                <p>Si toutefois vous n'arrivez pas à vous connecter, envoyez un message à notre page facebook.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <% if (connecte === true){ %>
+                                <div class="grille col-sm-12">
+                                    <h3>Nouvelle réclamation</h3>
+                                    <form class="form-horizontal" action="/reclamation" method="POST" >
+                                       <div class="form-group">
+                                        <div class="col-sm-4">
+                                          <input type="text" class="form-control Auteur" name="dateR" placeholder="Date de la livraison">
+                                        </div>
+                                        <div class="col-sm-4">
+                                          <h4><%= utilisateurNom %> <% if (utilisateurPrénom !== "ProjetGate2016!") { %><%= utilisateurPrénom %><% } %></h4>
+                                        </div> 
+                                       </div>
+                                       <div class="form-group">
+                                        <div class="col-sm-4">
+                                          <input type="text" class="form-control Auteur" name="référence" placeholder="Référence / des / produits">
+                                        </div>
+                                        <!--<div class="col-sm-4">-->
+                                        <!--  <input type="text" class="form-control Auteur" name="photo" placeholder="Photo">-->
+                                        <!--</div>-->
+                                        <div class="col-sm-4">
+                                          <input type="text" class="form-control Auteur" name="prix" placeholder="Prix / associé / au / produit">
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <div class="col-sm-12">
+                                          <textarea class="form-control Arti" rows="10" name="plainte"  placeholer="Ecrivez votre réclamation..."></textarea>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <div class="col-sm-offset-4 col-sm-10">
+                                          <button type="submit" class="btn btn-info btn-recla">Ajouter</button>
+                                        </div>
+                                      </div>
+                                    </form>
+                                </div>
+                                <div class="grille col-sm-12">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <h3>Vos réclamations</h3>
+                                            <% for ( var i = réclamation.length -1 ; i >= 0; i-- ){ %>
+                                                <div class="grille">
+                                                   <h4 class="titreSec "> Réclamation du <%= réclamation[i].dateR %><span class="traité">Traité : <%if (réclamation[i].traité === "1") { %><i class="fa fa-hourglass-end" aria-hidden="true"></i><i class="fa fa-check" aria-hidden="true"></i><% } else { %><i class="fa fa-hourglass-start" aria-hidden="true"></i><% } %></span><form class="trash" method="POST" action="/reclamation"><input type="hidden" name="idRéc" value="<%= réclamation[i].id %>" /><button class="trash2"><i class="fa fa-trash"></i></button></form></h4>
+                                                   <p class="separateur"><%= réclamation[i].plainte %></p>
+                                                   <p>Référence : <%= réclamation[i].référence %></p>
+                                                   <p>Prix : <%= réclamation[i].prix %></p>
+                                                </div>
+                                            <% }; %> 
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </div>
+                    </article>
+                    
+                </div>
+            </div>
+            
+<% include partials/footer %>

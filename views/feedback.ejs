@@ -1,0 +1,44 @@
+<% include partials/header %>
+    <div class="container">
+        <% if (connecte === true){ %>
+            <div class="row">
+                <div class="grille col-sm-9">
+                    <h3>Aider nous à améliorer notre service et/ou notre site..</h3>
+                    <form class="form-horizontal" action="/feedback" method="POST" >
+                       <div class="form-group">
+                        <div class="col-sm-4">
+                          <h4><%= utilisateurNom %> <% if (utilisateurPrénom !== "ProjetGate2016!") { %><%= utilisateurPrénom %><% } %></h4>
+                        </div> 
+                       </div>
+                      <div class="form-group">
+                        <div class="col-sm-12">
+                          <textarea class="form-control Arti" rows="10" name="feed"  placeholer="Ecrivez votre réclamation..."></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-10">
+                          <button type="submit" class="btn btn-info btn-recla">Ajouter</button>
+                        </div>
+                      </div>
+                    </form>
+                </div>
+            </div>
+        <% } else { %> 
+            <h3>Connecter vous si vous voulez nous retourner vos impressions.</h3>
+        <% } %>
+        <% if (connecteAd === true) { %>
+            <div class="row">
+                <div class="grille col-sm-9">
+                    <h3>Feedbacks</h3>
+                    <% for ( var i = feedbacks.length -1 ; i >= 0; i-- ){ %>
+                       <div class="grille">
+                           <h4 class="titreSec "> Feedback de <%= feedbacks[i].Nom %> <%= feedbacks[i].Prénom %> <form class="trash" method="POST" action="/feedback"><input type="hidden" name="idFee" value="<%= feedbacks[i].id %>" /><button class="trash2"><i class="fa fa-trash"></i></button></form></h4>
+                           <p class="separateur"><%= feedbacks[i].feedback %></p>
+                        </div>
+                    <% }; %> 
+                </div>
+            </div>
+        <% } %>
+    </div>
+
+<% include partials/footer %>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!-- <link rel="stylesheet" type="text/css" href="bootstrap.css"></li> -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Alegreya|Lobster" rel="stylesheet">
+        <link rel="stylesheet" href="/stylesheets/compl.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Deliv'evry</title>
+        <link rel="icon" href="/images/logo.png">
+    </head>
+
+    <body class="ombreCor">
+        <header>
+        <nav class="navbar navbar-default navbar-fixed-top ombreNav">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed btnnav" data-toggle="collapse" data-target="#navigat" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/" class="navbar-brand logo"><img alt="Brand" src="/images/logo.png" /></a>
+                    <span class="navbar-brand liens1 titre entête1">DELIV'EVRY</span>
+                    <span class="navbar-brand liens1 titre projetGate entête1">Projet Gate</span>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li></li>
+                </ul>
+                <div class="collapse navbar-collapse" id="navigat">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="entête"><a class="redir" href="/">Accueil</a></li>
+                        <li class="entête">
+                            <div class="dropdown">
+                              <button class="redir" id="dLabel2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div>Comment?</div>
+                              </button>
+                              <ul class="dropdown-menu " aria-labelledby="dLabel2">
+                                <li><a class="redir redir2" href="commentCP">Campus/Personnel</a></li>
+                                <li><a class="redir redir2" href="commentU6">U6</a></li>
+                              </ul>
+                            </div>
+                        </li>
+                        <li class="entête"><a class="redir" href="reclamation">Réclamations</a></li>
+                        <li class="entête"><a class="redir" href="equipe">L'équipe</a></li>
+                        <li class="entête">
+                            <% if (connecte === false || connecte === undefined){ %>
+                                <div class="dropdown">
+                                  <button class="redir" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Connexion
+                                  </button>
+                                  <ul class="dropdown-menu " aria-labelledby="dLabel">
+                                
+                                    <form class=" form-horizontal" action="/" method="POST">
+                                      <li class="form-group">
+                                          <div class="col-xs-10">
+                                              <input type="text" class="redir redir2 form-control" name="idNom" placeholder="Nom (en MAJ)">
+                                          </div>
+                                      </li>
+                                      <li class="form-group">
+                                          <div class="col-xs-10">
+                                              <input type="text" class="redir redir2 form-control" name="idPrénom" placeholder="Prénom">
+                                           </div>
+                                      </li>
+                                      <li class="form-group">
+                                            <div class=" col-xs-10">
+                                              <button type="submit" class="grille btn btn-info btnEcri">Connexion</button>
+                                            </div>
+                                      </li>
+                                    </form>
+                                    </ul>
+                                </div>
+                            <% } else { %>
+                                <div class="dropdown">
+                                  <button class="redir" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div><%= utilisateurNom %></div>
+                                  </button>
+                                  <ul class="dropdown-menu " aria-labelledby="dLabel">
+                                    <% if (connecteAd === false){ %>
+                                        <li class="etatCo"><%= utilisateurPrénom %></li>
+                                        <li ><a class="redir" href="feedback">Feedback</a></li>
+                                    <% } else if (connecteAd === true ) { %>
+                                      <li ><a class="redir" href="reclamationAdmin">Les Réclamations</a></li>
+                                      <li ><a class="redir" href="users">Les utilisateurs</a></li>
+                                      <li ><a class="redir" href="feedback">Les feedbacks</a></li>
+                                    <% } %>
+                                    <li class="etatCo"><button class="btn btn-info"><a class="btnEcri" href="/logout">Déconnexion</a></button></li>
+                                    
+                                  </ul>
+                                </div>
+                            <% } %>
+                        <li class="entête">
+                          <a href="https://www.facebook.com/LivraisonMaisel?fref=ts" >
+                            <img src="images/blabla.png" alt="blabla">
+                          </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        </header>
+        
+        
+        <section>
